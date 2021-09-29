@@ -12,7 +12,12 @@
         <img src="/img/banner-login.png" alt="" srcset="" />
       </div>
       <div class="content">
-        <form class="form-auth card">
+        <div>
+          <% if(typeof error != "undefined"){%>
+            <h4><%= error %></h4>
+         <% } %>
+        </div>
+        <form class="form-auth card" action="/login" method="POST">
           <div id="logo">
             <img src="img/logo.png" alt="" />
           </div>

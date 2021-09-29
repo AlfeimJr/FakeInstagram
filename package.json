@@ -1,19 +1,32 @@
 {
-  "name": "fake-instagram-v2",
+  "name": "kask",
   "version": "1.0.0",
-  "description": "",
+  "description": "k",
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "./node_modules/.bin/nodemon src/app.js"
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.12"
-  }
+    "mysql2": "^2.3.0",
+    "nodemon": "^2.0.13",
+    "sequelize": "^6.6.5",
+    "sequelize-cli": "^6.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlfeimJr/FakeInstagram.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlfeimJr/FakeInstagram/issues"
+  },
+  "homepage": "https://github.com/AlfeimJr/FakeInstagram#readme"
 }
