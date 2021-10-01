@@ -2,6 +2,8 @@ const express = require("express");
 const routes = require("./routes");
 const logger = require("morgan");
 const path = require("path");
+//importando a sessão
+const session = require('express-session')
 
 var app = express();
 
@@ -13,6 +15,14 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+//configurando a sessão
+app.use(session({
+    secret: 'fake-instagram2021',
+    resave: false,
+    saveUninitialized: true,
+  })
+  )
+
 
 app.use("/", routes);
 
