@@ -38,39 +38,47 @@
       </div>
     </header>
     <main class="container content">
-      <div class="card">
-        <div class="card-header">
-          <div>
-            <img class="avatar" src="/img/avatar-example.png" />
-            <b>Vinny Oliveira</b>
-          </div>
-          <img src="/img/icons/more-vertical.svg" />
-        </div>
-        <div class="card-img">
-          <img src="/img/publication_example.jpg" />
-        </div>
-        <div class="card-body">
-          <div class="card-itens">
-            <div class="likes">
-              <img src="/img/icons/heart.svg" />
-              <b>10 likes</b>
+        <% publications.forEach(publication =>{%>
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <img class="avatar" src="/img/avatar-example.png" />
+                <b><%= publication.User.name %> </b>
+              </div>
+              <img src="/img/icons/more-vertical.svg" />
             </div>
-            <b>Postado no dia: 20/20/2020</b>
-          </div>
-          <div class="card-comments">
-            <p><b>Mario Luz</b> Que incrivel!</p>
-          </div>
-        </div>
-        <form class="form-comments">
-          <input type="text" hidden name="postId" />
-          <input
+            <div class="card-img">
+              <img src="/posts/<%= publication.image %>"/>
+            </div>
+            <div class="card-body">
+              <div class="card-itens">
+                <div class="likes">
+                  <img src="/img/icons/heart.svg" />
+                  <b>10 likes</b>
+                </div>
+                <b>Postado no dia: <%= new Intl.DateTimeFormat('pt-BR').format( publication.create_at) %> </b>
+              </div>
+              <div class="card-comments">
+                <p><b>Mario Luz</b> Que incrivel!</p>
+              </div>
+            </div>
+            <form class="form-comments">
+              <input
             type="text"
-            placeholder="Adicione um comentário..."
-            name="description"
+            hidden
+            name="postId"
+            value="<%= publication.id %>"
           />
-          <button type="submit">Publicar</button>
-        </form>
-      </div>
+              <input
+                type="text"
+                placeholder="Adicione um comentário..."
+                name="description"
+              />
+              <button type="submit">Publicar</button>
+            </form>
+          </div>
+       <% }) %>
+        
     </main>
   </body>
 </html>

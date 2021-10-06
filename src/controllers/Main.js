@@ -1,12 +1,29 @@
-const { Publication } = require("../models");
+const { Publication, User } = require("../models");
+
 
 const mainController = {
-  showHome(req, res) {
-    return res.render("home");
-  },
+  async showHome(req, res){
+    try{
+      const publications = await Publication.findAll({
+        include: [
+          {
+            model: User
+          }
+        ],
+        order: [
+          ["create_at", "DESC"]
+        ]
+      })
+      return res.render('home',{publications})
+    }catch(err){
+      console.log(err)
+    }
+},
+
   showCreatePublication(req, res) {
-    return res.render("post");
-  },
+  return res.render("post");
+},
+
 
   //Criar uma publicação 
   async createPublication(req, res) {

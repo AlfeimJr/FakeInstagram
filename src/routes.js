@@ -18,6 +18,7 @@ router.get("/publicar", isLogin, mainController.showCreatePublication);
 
 router.post("/login", authController.login);
 
+//ROTA POST PARA PUBLICACAO FUNCIONAR 
 router.post("/publicar", isLogin, upload.single("photo"), mainController.createPublication);
 
 

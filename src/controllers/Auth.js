@@ -8,6 +8,9 @@ const authController = {
   showRegister(req, res) {
     return res.render("auth/register");
   },
+
+
+  //CRIANDO UM CADASTRO NO INSTA
   async register(req, res) {
     const { name, email, password, username } = req.body;
     try {
@@ -27,7 +30,9 @@ const authController = {
       return res.redirect("/registro");
     }
   },
+  ///////////////////////////////////////////////
 
+  //FUNCAO PARA O LOGIN FUNCIONAR
   async login(req, res){
     
     try {
@@ -54,8 +59,8 @@ const authController = {
     console.log(error);
     return res.render('auth/login',{error: 'Sistema indesponivel tente novamente'})
   }
-}
-
+  }
+  ////////////////////////////////////////////////////////////////////
 };
 
 
