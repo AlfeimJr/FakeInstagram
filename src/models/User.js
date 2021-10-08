@@ -1,3 +1,4 @@
+//REPRESENTAÇÃO DA TABELA DO BD
 module.exports = (conection, DataTypes) => {
     const User = conection.define('User', {
         id:{

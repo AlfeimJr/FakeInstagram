@@ -59,10 +59,13 @@
                 <b>Postado no dia: <%= new Intl.DateTimeFormat('pt-BR').format( publication.create_at) %> </b>
               </div>
               <div class="card-comments">
-                <p><b>Mario Luz</b> Que incrivel!</p>
+                <% publication.Comments.forEach( comment => { %>
+                  <p><b><%= comment.User.name %> </b> <%= comment.content %></p>
+                  <% }) %>
+                
               </div>
             </div>
-            <form class="form-comments">
+            <form class="form-comments" action="/comentario" method="POST">
               <input
             type="text"
             hidden

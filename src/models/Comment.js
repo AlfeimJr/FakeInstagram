@@ -1,5 +1,5 @@
 module.exports = (conection, DataTypes) => {
-    const Publication = conection.define('Publication', {
+    const Comment = conection.define('Comment', {
         id:{
             type: DataTypes.INTEGER,
             primaryKey:true,
@@ -8,7 +8,7 @@ module.exports = (conection, DataTypes) => {
         content: {
             type: DataTypes.STRING(200),
         },
-        image: {
+        publication_id: {
             type: DataTypes.STRING(200),
         },
         user_id: {
@@ -20,20 +20,18 @@ module.exports = (conection, DataTypes) => {
     
     },
     { 
-        tableName: "publications",
+        tableName: "comments",
         timestamps: false,
     },
     )
+    Comment.associate = (models) => {
+        Comment.belongsTo(models.User, {
+          foreignKey: "user_id",
+        });
+        Comment.belongsTo(models.Publication, {
+          foreignKey: "publication_id",
+        });
+      };
     
-    //relacionamento entre usuario e publicação 
-    Publication.associate = (models) => {
-        Publication.belongsTo(models.User, {
-            foreignKey: 'user_id'
-        }) 
-        Publication.hasMany(models.Comment, {
-            foreignKey: 'publication_id'
-        })        
-    }    
-    return Publication;
-    //////////////////////////////////////////////
-};
+      return Comment;
+    };

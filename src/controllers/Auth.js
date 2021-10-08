@@ -56,7 +56,7 @@ const authController = {
 
     return res.redirect('/home');
   } catch(err){
-    console.log(error);
+    console.log(err);
     return res.render('auth/login',{error: 'Sistema indesponivel tente novamente'})
   }
   }
